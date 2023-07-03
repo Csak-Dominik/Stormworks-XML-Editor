@@ -1,0 +1,40 @@
+ply
+format ascii 1.0
+commentY29udmVydGVyIGJ5IENvZGVMZW9wYXJk
+comment Original mesh name: 'C:\Program Files (x86)\Steam\steamapps\common\Stormworks\rom\meshes\component_gun_belt_junction_diamond.mesh'
+comment SubMesh index: 0
+comment SubMesh name: 'ID16'
+comment Shader: Opaque (0)
+element vertex 12
+property float x
+property float y
+property float z
+property float nx
+property float ny
+property float nz
+property uchar red
+property uchar green
+property uchar blue
+property uchar alpha
+element face 6
+property list uchar ushort vertex_index
+end_header
+-5.7752917E-15 -0.02999999 0.099999994 3.6095567E-14 4.511946E-14 -1 255 125 0 255
+-5.7752917E-15 0.02999999 0.099999994 3.6095567E-14 4.511946E-14 -1 255 125 0 255
+0.02999999 3.6095557E-16 0.099999994 3.6095567E-14 4.511946E-14 -1 255 125 0 255
+-0.02999999 3.6095557E-16 0.099999994 3.6095567E-14 4.511946E-14 -1 255 125 0 255
+-0.02999999 -0.37 -1.9762324E-14 0 1 -0 255 125 0 255
+0.02999999 -0.37 -2.4996181E-14 0 1 -0 255 125 0 255
+-0 -0.37 -0.02999999 0 1 -0 255 125 0 255
+-0 -0.37 0.02999999 0 1 -0 255 125 0 255
+0.02999999 0.37 7.2191136E-16 0 -1 -0 255 125 0 255
+-0.02999999 0.37 0 0 -1 -0 255 125 0 255
+-0 0.37 -0.02999999 0 -1 -0 255 125 0 255
+-0 0.37 0.02999999 0 -1 -0 255 125 0 255
+3 0 1 2
+3 1 0 3
+3 4 5 6
+3 5 4 7
+3 8 9 10
+3 9 8 11
+

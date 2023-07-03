@@ -1,0 +1,40 @@
+ply
+format ascii 1.0
+commentY29udmVydGVyIGJ5IENvZGVMZW9wYXJk
+comment Original mesh name: 'C:\Program Files (x86)\Steam\steamapps\common\Stormworks\rom\meshes\component_gun_belt_corner_diamond.mesh'
+comment SubMesh index: 0
+comment SubMesh name: 'ID16'
+comment Shader: Opaque (0)
+element vertex 12
+property float x
+property float y
+property float z
+property float nx
+property float ny
+property float nz
+property uchar red
+property uchar green
+property uchar blue
+property uchar alpha
+element face 6
+property list uchar ushort vertex_index
+end_header
+0.02999999 0.37 -1.3716316E-13 9.625486E-14 -1 1.9250969E-13 255 125 0 255
+-0.02999999 0.37 -1.3716316E-13 9.625486E-14 -1 1.9250969E-13 255 125 0 255
+-2.1368574E-13 0.37 -0.02999999 9.625486E-14 -1 1.9250969E-13 255 125 0 255
+-2.1368574E-13 0.37 0.02999999 9.625486E-14 -1 1.9250969E-13 255 125 0 255
+-0.048964463 -0.02999999 0.048964463 0.70710677 2.3236946E-13 -0.70710677 255 125 0 255
+-0.048964463 0.02999999 0.048964463 0.70710677 2.3236946E-13 -0.70710677 255 125 0 255
+-0.02775125 0 0.07017765 0.70710677 2.3236946E-13 -0.70710677 255 125 0 255
+-0.07017765 0 0.02775125 0.70710677 2.3236946E-13 -0.70710677 255 125 0 255
+-0.02999999 -0.37 -6.813039E-15 -9.625486E-14 1 -9.625486E-14 255 125 0 255
+0.02999999 -0.37 -6.813039E-15 -9.625486E-14 1 -9.625486E-14 255 125 0 255
+5.7752917E-15 -0.37 -0.02999999 -9.625486E-14 1 -9.625486E-14 255 125 0 255
+5.7752917E-15 -0.37 0.02999999 -9.625486E-14 1 -9.625486E-14 255 125 0 255
+3 0 1 2
+3 1 0 3
+3 4 5 6
+3 5 4 7
+3 8 9 10
+3 9 8 11
+
