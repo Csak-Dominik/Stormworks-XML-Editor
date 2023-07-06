@@ -1,0 +1,36 @@
+ply
+format ascii 1.0
+commentY29udmVydGVyIGJ5IENvZGVMZW9wYXJk
+comment Original mesh name: 'C:\Program Files (x86)\Steam\steamapps\common\Stormworks\rom\meshes\component_wing_xl.mesh'
+comment SubMesh index: 0
+comment SubMesh name: 'ID2'
+comment Shader: Opaque (0)
+element vertex 10
+property float x
+property float y
+property float z
+property float nx
+property float ny
+property float nz
+property uchar red
+property uchar green
+property uchar blue
+property uchar alpha
+element face 4
+property list uchar ushort vertex_index
+end_header
+-0.37499997 -2.125 0.8749999 3.6725182E-30 -3.36892E-15 -1 255 125 0 255
+0.125 -2.125 0.8749999 3.6725182E-30 -3.36892E-15 -1 255 125 0 255
+0.125 -5.1250005 0.8749999 3.6725182E-30 -3.36892E-15 -1 255 125 0 255
+-0.37499997 -2.125 -0.8749999 0.98639387 0.16439898 6.224902E-15 255 125 0 255
+0.125 -5.1250005 0.8749999 0.98639387 0.16439898 6.224902E-15 255 125 0 255
+0.125 -5.1250005 -0.8749999 0.98639387 0.16439898 6.224902E-15 255 125 0 255
+-0.37499997 -2.125 0.8749999 0.98639387 0.16439898 6.224902E-15 255 125 0 255
+-0.37499997 -2.125 -0.8749999 -1.8362591E-30 3.36892E-15 1 255 125 0 255
+0.125 -5.1250005 -0.8749999 -1.8362591E-30 3.36892E-15 1 255 125 0 255
+0.125 -2.125 -0.8749999 -1.8362591E-30 3.36892E-15 1 255 125 0 255
+3 0 1 2
+3 3 4 5
+3 4 3 6
+3 7 8 9
+
