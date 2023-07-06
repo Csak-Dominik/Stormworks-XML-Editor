@@ -225,3 +225,27 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 157.261847 seconds.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79842766b460edbeab6a34051e857a80') in 0.021391 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.659892 seconds.
+  path: Assets/PLY
+  artifactKey: Guid(a4a9247cd33ef444b9a4f6d3ae6897c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PLY using Guid(a4a9247cd33ef444b9a4f6d3ae6897c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d2f046cadf49e79ef0f7ecdbdd84484') in 0.007600 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.979837 seconds.
+  path: Assets/Ply
+  artifactKey: Guid(a4a9247cd33ef444b9a4f6d3ae6897c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Ply using Guid(a4a9247cd33ef444b9a4f6d3ae6897c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dedcead5870fd42f96aef02e03d7ce4e') in 0.008441 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.261386 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(2948f44215d20a648a91bac487ae40cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(2948f44215d20a648a91bac487ae40cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7fc4da68f7ebc13134fabfdc0cae1ca5') in 0.008588 seconds 
