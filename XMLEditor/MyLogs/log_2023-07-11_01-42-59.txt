@@ -1,0 +1,35 @@
+----- Stormworks XML Editor log -----
+Version: 0.1.0
+Unity version: 2022.3.4f1
+Log created at 2023-07-11 01:42:59
+---------------
+ [LOG] Loading Assets/Ply/component_button.ply...
+ [ERR] Loading Assets/Ply/component_button.ply failed! Exception: System.IO.DirectoryNotFoundException: Could not find a part of the path "C:\Dominik\StormworksXMLEditor\Stormworks-XML-Editor\XMLEditor\Assets\Ply\Assets\Ply\component_button.ply".
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) [0x00164] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.IO.FileOptions options) [0x00000] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int,System.IO.FileOptions)
+  at System.IO.StreamReader..ctor (System.String path, System.Text.Encoding encoding, System.Boolean detectEncodingFromByteOrderMarks, System.Int32 bufferSize) [0x00055] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at System.IO.StreamReader..ctor (System.String path, System.Boolean detectEncodingFromByteOrderMarks) [0x00007] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.StreamReader..ctor(string,bool)
+  at PlyTools.LoadPly (System.String path) [0x00030] in C:\Dominik\StormworksXMLEditor\Stormworks-XML-Editor\XMLEditor\Assets\Scripts\PlyTools.cs:45 
+  at Part.Start () [0x00026] in C:\Dominik\StormworksXMLEditor\Stormworks-XML-Editor\XMLEditor\Assets\Scripts\Part.cs:28 
+ [LOG] Loading Assets/Ply/component_altisensor.ply...
+ [ERR] Loading Assets/Ply/component_altisensor.ply failed! Exception: System.IO.DirectoryNotFoundException: Could not find a part of the path "C:\Dominik\StormworksXMLEditor\Stormworks-XML-Editor\XMLEditor\Assets\Ply\Assets\Ply\component_altisensor.ply".
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) [0x00164] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.IO.FileOptions options) [0x00000] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int,System.IO.FileOptions)
+  at System.IO.StreamReader..ctor (System.String path, System.Text.Encoding encoding, System.Boolean detectEncodingFromByteOrderMarks, System.Int32 bufferSize) [0x00055] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at System.IO.StreamReader..ctor (System.String path, System.Boolean detectEncodingFromByteOrderMarks) [0x00007] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.StreamReader..ctor(string,bool)
+  at PlyTools.LoadPly (System.String path) [0x00030] in C:\Dominik\StormworksXMLEditor\Stormworks-XML-Editor\XMLEditor\Assets\Scripts\PlyTools.cs:45 
+  at Part.Start () [0x00026] in C:\Dominik\StormworksXMLEditor\Stormworks-XML-Editor\XMLEditor\Assets\Scripts\Part.cs:28 
+ [LOG] Loading Assets/Ply/component_aritificial_horizon_ball.ply...
+ [ERR] Loading Assets/Ply/component_aritificial_horizon_ball.ply failed! Exception: System.IO.DirectoryNotFoundException: Could not find a part of the path "C:\Dominik\StormworksXMLEditor\Stormworks-XML-Editor\XMLEditor\Assets\Ply\Assets\Ply\component_aritificial_horizon_ball.ply".
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) [0x00164] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.IO.FileOptions options) [0x00000] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int,System.IO.FileOptions)
+  at System.IO.StreamReader..ctor (System.String path, System.Text.Encoding encoding, System.Boolean detectEncodingFromByteOrderMarks, System.Int32 bufferSize) [0x00055] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at System.IO.StreamReader..ctor (System.String path, System.Boolean detectEncodingFromByteOrderMarks) [0x00007] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.StreamReader..ctor(string,bool)
+  at PlyTools.LoadPly (System.String path) [0x00030] in C:\Dominik\StormworksXMLEditor\Stormworks-XML-Editor\XMLEditor\Assets\Scripts\PlyTools.cs:45 
+  at Part.Start () [0x00026] in C:\Dominik\StormworksXMLEditor\Stormworks-XML-Editor\XMLEditor\Assets\Scripts\Part.cs:28 

@@ -1,0 +1,86 @@
+----- Stormworks XML Editor log -----
+Version: 0.1.0
+Unity version: 2022.3.4f1
+Log created at 2023-07-11 01:56:11
+---------------
+ [LOG] Loading Assets/Ply/component_button.ply...
+ [LOG] Unity: Current encoding: System.Text.ASCIIEncoding
+ [LOG] Loading Assets/Ply/component_button.ply succeeded!
+ [LOG] Loading Assets/Ply/component_altisensor.ply...
+ [LOG] Unity: Current encoding: System.Text.ASCIIEncoding
+ [LOG] Loading Assets/Ply/component_altisensor.ply succeeded!
+ [LOG] Loading Assets/Ply/component_aritificial_horizon_ball.ply...
+ [LOG] Loading Assets/Ply/component_aritificial_horizon_ball.ply failed! Trying to load multiple files...
+ [LOG] Loading Assets/Ply/component_aritificial_horizon_ball.000.ply...
+ [LOG] Unity: Current encoding: System.Text.ASCIIEncoding
+ [LOG] Loading Assets/Ply/component_aritificial_horizon_ball.000.ply succeeded!
+ [LOG] Loading Assets/Ply/component_aritificial_horizon_ball.001.ply...
+ [LOG] Unity: Current encoding: System.Text.ASCIIEncoding
+ [LOG] Loading Assets/Ply/component_aritificial_horizon_ball.001.ply succeeded!
+ [LOG] Loading Assets/Ply/component_aritificial_horizon_ball.002.ply...
+[WARN] Loading Assets/Ply/component_aritificial_horizon_ball.002.ply failed!
+ [LOG] Loading Assets/Ply/component_aritificial_horizon_ball.ply succeeded!
+ [LOG] Loading XML: Assets/XML/MiniShunter.xml...
+ [LOG] XML loaded: Assets/XML/MiniShunter.xml!
+ [LOG] Loading editor placement offset...
+ [LOG] Editor placement offset loaded: (0.00, -0.70, 0.00)!
+ [LOG] Searching for "Bodies" tag...
+ [LOG] Found "Bodies" tag!
+ [LOG] Loading bodies...
+ [LOG] Unity: Current encoding: System.Text.ASCIIEncoding
+ [LOG] Unity: Current encoding: System.Text.ASCIIEncoding
+ [ERR] Unity: FileNotFoundException: Could not find file "C:\Dominik\StormworksXMLEditor\Stormworks-XML-Editor\XMLEditor\Assets\Ply\train_wheels_dynamic_x1.ply"
+       ~~ System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) (at <605bf8b31fcb444b85176da963870aa7>:0)
+          System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.IO.FileOptions options) (at <605bf8b31fcb444b85176da963870aa7>:0)
+          (wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int,System.IO.FileOptions)
+          System.IO.StreamReader..ctor (System.String path, System.Text.Encoding encoding, System.Boolean detectEncodingFromByteOrderMarks, System.Int32 bufferSize) (at <605bf8b31fcb444b85176da963870aa7>:0)
+          System.IO.StreamReader..ctor (System.String path, System.Boolean detectEncodingFromByteOrderMarks) (at <605bf8b31fcb444b85176da963870aa7>:0)
+          (wrapper remoting-invoke-with-check) System.IO.StreamReader..ctor(string,bool)
+          PlyTools.LoadPly (System.String path) (at Assets/Scripts/PlyTools.cs:45)
+          Vehicle.LoadMesh (System.Xml.XmlNode node) (at Assets/Scripts/Vehicle.cs:74)
+          Vehicle.LoadBody (System.Xml.XmlNode body) (at Assets/Scripts/Vehicle.cs:62)
+          Vehicle.LoadXML (System.String path) (at Assets/Scripts/Vehicle.cs:51)
+          Vehicle.Start () (at Assets/Scripts/Vehicle.cs:15)
+          
+ [ERR] Unity: ArgumentNullException: Value cannot be null.
+Parameter name: _unity_self
+       ~~ UnityEditor.SerializedObject.FindProperty (System.String propertyPath) (at <da771086bc2e4cfc9ad0a72e083a7f98>:0)
+          UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.BindPropertyRelative (UnityEngine.UIElements.IBindable field, UnityEditor.SerializedProperty parentProperty) (at <8ad9ecbe25e14b10b6dde783af6e4aa2>:0)
+          UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.BindTree (UnityEngine.UIElements.VisualElement element, UnityEditor.SerializedProperty parentProperty) (at <8ad9ecbe25e14b10b6dde783af6e4aa2>:0)
+          UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.ContinueBinding (UnityEngine.UIElements.VisualElement element, UnityEditor.SerializedProperty parentProperty) (at <8ad9ecbe25e14b10b6dde783af6e4aa2>:0)
+          UnityEditor.UIElements.Bindings.DefaultSerializedObjectBindingImplementation+BindingRequest.Bind (UnityEngine.UIElements.VisualElement element) (at <8ad9ecbe25e14b10b6dde783af6e4aa2>:0)
+          UnityEngine.UIElements.VisualTreeBindingsUpdater.Update () (at <e66f217a64a747d48b478f0d70978704>:0)
+          UnityEngine.UIElements.VisualTreeUpdater.UpdateVisualTreePhase (UnityEngine.UIElements.VisualTreeUpdatePhase phase) (at <e66f217a64a747d48b478f0d70978704>:0)
+          UnityEngine.UIElements.Panel.UpdateBindings () (at <e66f217a64a747d48b478f0d70978704>:0)
+          UnityEngine.UIElements.UIElementsUtility.UnityEngine.UIElements.IUIElementsUtility.UpdateSchedulers () (at <e66f217a64a747d48b478f0d70978704>:0)
+          UnityEngine.UIElements.UIEventRegistration.UpdateSchedulers () (at <e66f217a64a747d48b478f0d70978704>:0)
+          UnityEditor.RetainedMode.UpdateSchedulers () (at <8ad9ecbe25e14b10b6dde783af6e4aa2>:0)
+          
+ [ERR] Unity: ArgumentNullException: Value cannot be null.
+Parameter name: _unity_self
+       ~~ UnityEditor.SerializedObject.FindProperty (System.String propertyPath) (at <da771086bc2e4cfc9ad0a72e083a7f98>:0)
+          UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.BindPropertyRelative (UnityEngine.UIElements.IBindable field, UnityEditor.SerializedProperty parentProperty) (at <8ad9ecbe25e14b10b6dde783af6e4aa2>:0)
+          UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.BindTree (UnityEngine.UIElements.VisualElement element, UnityEditor.SerializedProperty parentProperty) (at <8ad9ecbe25e14b10b6dde783af6e4aa2>:0)
+          UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.ContinueBinding (UnityEngine.UIElements.VisualElement element, UnityEditor.SerializedProperty parentProperty) (at <8ad9ecbe25e14b10b6dde783af6e4aa2>:0)
+          UnityEditor.UIElements.Bindings.DefaultSerializedObjectBindingImplementation+BindingRequest.Bind (UnityEngine.UIElements.VisualElement element) (at <8ad9ecbe25e14b10b6dde783af6e4aa2>:0)
+          UnityEngine.UIElements.VisualTreeBindingsUpdater.Update () (at <e66f217a64a747d48b478f0d70978704>:0)
+          UnityEngine.UIElements.VisualTreeUpdater.UpdateVisualTreePhase (UnityEngine.UIElements.VisualTreeUpdatePhase phase) (at <e66f217a64a747d48b478f0d70978704>:0)
+          UnityEngine.UIElements.Panel.UpdateBindings () (at <e66f217a64a747d48b478f0d70978704>:0)
+          UnityEngine.UIElements.UIElementsUtility.UnityEngine.UIElements.IUIElementsUtility.UpdateSchedulers () (at <e66f217a64a747d48b478f0d70978704>:0)
+          UnityEngine.UIElements.UIEventRegistration.UpdateSchedulers () (at <e66f217a64a747d48b478f0d70978704>:0)
+          UnityEditor.RetainedMode.UpdateSchedulers () (at <8ad9ecbe25e14b10b6dde783af6e4aa2>:0)
+          
+ [ERR] Unity: ArgumentNullException: Value cannot be null.
+Parameter name: _unity_self
+       ~~ UnityEditor.SerializedObject.FindProperty (System.String propertyPath) (at <da771086bc2e4cfc9ad0a72e083a7f98>:0)
+          UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.BindPropertyRelative (UnityEngine.UIElements.IBindable field, UnityEditor.SerializedProperty parentProperty) (at <8ad9ecbe25e14b10b6dde783af6e4aa2>:0)
+          UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.BindTree (UnityEngine.UIElements.VisualElement element, UnityEditor.SerializedProperty parentProperty) (at <8ad9ecbe25e14b10b6dde783af6e4aa2>:0)
+          UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.ContinueBinding (UnityEngine.UIElements.VisualElement element, UnityEditor.SerializedProperty parentProperty) (at <8ad9ecbe25e14b10b6dde783af6e4aa2>:0)
+          UnityEditor.UIElements.Bindings.DefaultSerializedObjectBindingImplementation+BindingRequest.Bind (UnityEngine.UIElements.VisualElement element) (at <8ad9ecbe25e14b10b6dde783af6e4aa2>:0)
+          UnityEngine.UIElements.VisualTreeBindingsUpdater.Update () (at <e66f217a64a747d48b478f0d70978704>:0)
+          UnityEngine.UIElements.VisualTreeUpdater.UpdateVisualTreePhase (UnityEngine.UIElements.VisualTreeUpdatePhase phase) (at <e66f217a64a747d48b478f0d70978704>:0)
+          UnityEngine.UIElements.Panel.UpdateBindings () (at <e66f217a64a747d48b478f0d70978704>:0)
+          UnityEngine.UIElements.UIElementsUtility.UnityEngine.UIElements.IUIElementsUtility.UpdateSchedulers () (at <e66f217a64a747d48b478f0d70978704>:0)
+          UnityEngine.UIElements.UIEventRegistration.UpdateSchedulers () (at <e66f217a64a747d48b478f0d70978704>:0)
+          UnityEditor.RetainedMode.UpdateSchedulers () (at <8ad9ecbe25e14b10b6dde783af6e4aa2>:0)
+          

@@ -12,10 +12,17 @@ public class Part : MonoBehaviour
     public string fileName;
     public PlyMesh plyMesh;
     private MeshFilter meshFilter;
+    private MeshRenderer meshRenderer;
+
+    [SerializeField]
+    private Material material;
 
     private void Awake()
     {
         meshFilter = GetComponent<MeshFilter>();
+        meshRenderer = GetComponent<MeshRenderer>();
+
+        meshRenderer.material = material;
     }
 
     private void Start()
@@ -25,7 +32,7 @@ public class Part : MonoBehaviour
         try
         {
             Logger.Log($"Loading {filePath}...");
-            plyMesh = PlyTools.LoadPly(PLY_DIRECTORY + filePath);
+            plyMesh = PlyTools.LoadPly(filePath);
             meshFilter.mesh = PlyTools.PlyToMesh(plyMesh);
             Logger.Log($"Loading {filePath} succeeded!");
         }

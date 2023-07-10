@@ -59,19 +59,19 @@ public class Vehicle : MonoBehaviour
 
         foreach (XmlNode c in components)
         {
-            LoadMesh(c);
+            LoadPartMesh(c);
         }
 
         return null;
     }
 
-    private Mesh LoadMesh(XmlNode node)
+    private Mesh LoadPartMesh(XmlNode node)
     {
         // get the mesh file name
-        string fileName = node.Attributes["d"].Value ?? "";
+        string fileName = node.Attributes["d"] != null ? node.Attributes["d"].Value : "unit_cube";
 
         // load the mesh
-        PlyMesh plyMesh = PlyTools.LoadPly($"Assets/Ply/{fileName}");
+        PlyMesh plyMesh = PlyTools.LoadPly($"Assets/Ply/{fileName}.ply");
 
         // convert the ply mesh to a unity mesh
         Mesh mesh = PlyTools.PlyToMesh(plyMesh);
