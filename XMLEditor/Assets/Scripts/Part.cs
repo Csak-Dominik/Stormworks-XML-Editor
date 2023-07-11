@@ -27,6 +27,10 @@ public class Part : MonoBehaviour
 
     private void Start()
     {
+    }
+
+    public void LoadMesh()
+    {
         string filePath = PLY_DIRECTORY + fileName;
 
         try

@@ -152,9 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8762c8cf745d3f443880bebb04a39785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xmlPath: Assets/XML/MiniShunter.xml
+  xmlPath: Assets/VehicleXML/MiniShunter.xml
   partGameObjects: []
   editorPlacementOffset: {x: 0, y: 0, z: 0}
+  defaultMat: {fileID: 2100000, guid: b4f6971ee7c8b034abc5c12ae9155dd8, type: 2}
 --- !u!4 &161752278
 Transform:
   m_ObjectHideFlags: 0
@@ -701,7 +702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085b289070f352c48add316ea65a3c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: component_button.ply
+  fileName: tut_wedge.ply
   material: {fileID: 2100000, guid: b4f6971ee7c8b034abc5c12ae9155dd8, type: 2}
 --- !u!23 &1439521883
 MeshRenderer:

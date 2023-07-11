@@ -1,0 +1,20 @@
+----- Stormworks XML Editor log -----
+Version: 0.1.0
+Unity version: 2022.3.4f1
+Log created at 2023-07-12 00:43:48
+---------------
+ [LOG] Loading XML: Assets/VehicleXML/MiniShunter.xml...
+ [LOG] XML loaded: Assets/VehicleXML/MiniShunter.xml!
+ [LOG] Loading editor placement offset...
+ [LOG] Editor placement offset loaded: (0.00, -0.70, 0.00)!
+ [LOG] Searching for "Bodies" tag...
+ [LOG] Found "Bodies" tag!
+ [LOG] Loading bodies...
+ [ERR] Unity: NullReferenceException: Object reference not set to an instance of an object
+       ~~ Vehicle.CreatePart (System.Xml.XmlNode node) (at Assets/Scripts/Vehicle.cs:79)
+          Vehicle.LoadBody (System.Xml.XmlNode body) (at Assets/Scripts/Vehicle.cs:66)
+          Vehicle.LoadXML (System.String path) (at Assets/Scripts/Vehicle.cs:55)
+          Vehicle.Start () (at Assets/Scripts/Vehicle.cs:19)
+          
+ [ERR] Unity: Assets\Scripts\Vehicle.cs(69,9): error CS0127: Since 'Vehicle.LoadBody(XmlNode)' returns void, a return keyword must not be followed by an object expression
+       ~~ 
