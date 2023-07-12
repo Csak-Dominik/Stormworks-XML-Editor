@@ -1,0 +1,24 @@
+----- Stormworks XML Editor log -----
+Version: 0.1.0
+Unity version: 2022.3.4f1
+Log created at 2023-07-12 22:22:50
+---------------
+ [LOG] Loading XML: Assets/VehicleXML/MiniShunter.xml...
+ [LOG] XML loaded: Assets/VehicleXML/MiniShunter.xml!
+ [LOG] Loading editor placement offset...
+ [LOG] Editor placement offset loaded: (0.00, -0.70, 0.00)!
+ [LOG] Searching for "Bodies" tag...
+ [LOG] Found "Bodies" tag!
+ [LOG] Loading bodies...
+ [LOG] Loading matrix...
+ [LOG] Matrix loaded! float3x3(1f, 0f, 0f,  0f, 0f, 1f,  0f, -1f, 0f)
+ [LOG] Fetching: 01_block...
+ [LOG] Fetched: !
+ [LOG] Unity: Surfaces: System.Collections.Generic.List`1[Assets.Scripts.Surface]
+ [ERR] Unity: IndexOutOfRangeException: Index was outside the bounds of the array.
+       ~~ Part.ApplyMatrix (Unity.Mathematics.float3x3 matrix) (at Assets/Scripts/Part.cs:115)
+          Vehicle.CreatePart (System.Xml.XmlNode componentNode) (at Assets/Scripts/Vehicle.cs:107)
+          Vehicle.LoadBody (System.Xml.XmlNode body) (at Assets/Scripts/Vehicle.cs:63)
+          Vehicle.LoadXML (System.String path) (at Assets/Scripts/Vehicle.cs:55)
+          Vehicle.Start () (at Assets/Scripts/Vehicle.cs:21)
+          

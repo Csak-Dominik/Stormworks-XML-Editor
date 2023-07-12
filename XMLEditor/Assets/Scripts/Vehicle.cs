@@ -1,7 +1,9 @@
 using Assets.Scripts;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Vehicle : MonoBehaviour
@@ -61,18 +63,37 @@ public class Vehicle : MonoBehaviour
         foreach (XmlNode c in components) CreatePart(c);
     }
 
-    private void CreatePart(XmlNode node)
+    private void CreatePart(XmlNode componentNode)
     {
         // get the mesh file name
-        string definitionName = node.Attributes["d"] != null ? node.Attributes["d"].Value : "01_block";
+        string definitionName = componentNode.Attributes["d"] != null ? componentNode.Attributes["d"].Value : "01_block";
 
-        XmlNode vp = node.SelectSingleNode("o/vp");
+        XmlNode o = componentNode.SelectSingleNode("o");
+        XmlNode vp = componentNode.SelectSingleNode("o/vp");
 
-        Vector3 pos = new Vector3(
-            vp.Attributes["x"] != null ? float.Parse(node.Attributes["x"].Value) : 0,
-            vp.Attributes["y"] != null ? float.Parse(node.Attributes["y"].Value) : 0,
-            vp.Attributes["z"] != null ? float.Parse(node.Attributes["z"].Value) : 0
-        );
+        Vector3 pos = vp != null ? new Vector3(
+            vp.Attributes["x"] != null ? float.Parse(vp.Attributes["x"].Value) / 4f : 0,
+            vp.Attributes["y"] != null ? float.Parse(vp.Attributes["y"].Value) / 4f : 0,
+            vp.Attributes["z"] != null ? float.Parse(vp.Attributes["z"].Value) / 4f : 0
+        ) : Vector3.zero;
+
+        Logger.Log("Loading matrix...");
+        float[] values = new float[9];
+        if (o != null && o.Attributes["r"] != null) values = o.Attributes["r"].Value.Split(',').Select(x => float.Parse(x)).ToArray();
+        else
+        {
+            values[0] = 1;
+            values[4] = 1;
+            values[8] = 1;
+        }
+
+        float3x3 matrix = new float3x3(
+            values[0], values[1], values[2],
+            values[3], values[4], values[5],
+            values[6], values[7], values[8]
+       );
+
+        Logger.Log($"Matrix loaded! {matrix}");
 
         Logger.Log($"Fetching: {definitionName}...");
         string meshName = GetMeshNameFromDefinitionFile(definitionName);
@@ -83,12 +104,14 @@ public class Vehicle : MonoBehaviour
             var surfaces = GetSurfacesFromDefinitionFile(definitionName);
 
             // combine the surfaces into a single mesh
-            Mesh genMesh = SurfaceBuilder.Instance.CombineSurfaces(surfaces);
+            Mesh genMesh = SurfaceBuilder.Instance.CreateMeshFromSurfaces(surfaces);
 
             // create new part game object
             var partGenGameObject = CreatePartGameObject(definitionName);
             partGenGameObject.transform.localPosition = pos;
             partGenGameObject.GetComponent<MeshFilter>().mesh = genMesh;
+            partGenGameObject.GetComponent<Part>().ApplyMatrix(matrix);
+            partGenGameObject.GetComponent<MeshFilter>().mesh.RecalculateNormals();
             return;
         }
 
@@ -97,6 +120,8 @@ public class Vehicle : MonoBehaviour
         var part = partGameObject.GetComponent<Part>();
         part.fileName = Path.GetFileName(meshName).Replace(".mesh", ".ply"); // flatten the path to just the file name
         part.LoadMesh();
+        part.ApplyMatrix(matrix);
+        partGameObject.GetComponent<MeshFilter>().mesh.RecalculateNormals();
     }
 
     private GameObject CreatePartGameObject(string definitionName)
@@ -171,6 +196,8 @@ public class Vehicle : MonoBehaviour
             // add the surface to the list
             surfaces.Add(surface);
         }
+
+        Debug.Log($"Surfaces: {surfaces}");
 
         return surfaces;
     }

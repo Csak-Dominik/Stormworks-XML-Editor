@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Unity.Mathematics;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter))]
@@ -103,7 +104,17 @@ public class Part : MonoBehaviour
         return numStr;
     }
 
-    private void Update()
+    public void ApplyMatrix(float3x3 matrix)
     {
+        var vertices = meshFilter.mesh.vertices;
+        var normals = meshFilter.mesh.normals;
+
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            vertices[i] = math.mul(vertices[i], matrix);
+        }
+
+        meshFilter.mesh.vertices = vertices;
+        meshFilter.mesh.normals = normals;
     }
 }

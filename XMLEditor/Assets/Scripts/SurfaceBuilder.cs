@@ -18,6 +18,9 @@ namespace Assets.Scripts
 
         private Dictionary<int, Mesh> shapeDict = new Dictionary<int, Mesh>();
 
+        private const float BLOCK_SIZE = 0.25f;
+        private const float HALF_BLOCK_SIZE = BLOCK_SIZE / 2f;
+
         private SurfaceBuilder()
         {
             InitMeshDictionary();
@@ -33,68 +36,98 @@ namespace Assets.Scripts
 
         // the orientation is the direction the mesh is facing
         // the rotation is the number of 90 degree rotations to apply
-        private Mesh RotateMesh(Mesh mesh, int orientation, int rotation)
+        public Mesh RotateMesh(Mesh mesh, int orientation, int rotation)
         {
-            var vertices = new Vector3[mesh.vertices.Length];
-
-            // first rotate the vertices
-            for (int i = 0; i < mesh.vertices.Length; i++)
-            {
-                vertices[i] = RotateVertex(mesh.vertices[i], rotation);
-            }
+            var vertices = mesh.vertices;
 
             // rotate the mesh in the correct orientation
             // orientation is from 0 to 5
             // 0 is up
             // 1 is right
-            // 2 is down
-            // 3 is left
+            // 2 is left
+            // 3 is down
             // 4 is forward
             // 5 is back
 
             switch (orientation)
             {
                 case 0:
-                    // no rotation needed
+                    // no orientation needed
+
+                    // rotation
+                    for (int i = 0; i < mesh.vertices.Length; i++)
+                    {
+                        vertices[i] = RotateVertex(mesh.vertices[i], rotation, Vector3.up);
+                    }
                     break;
 
                 case 1:
-                    // make the original y+ face the x+ direction
+                    // make the top face the x+ direction
                     for (int i = 0; i < vertices.Length; i++)
                     {
-                        vertices[i] = new Vector3(vertices[i].y, vertices[i].z, vertices[i].x);
+                        vertices[i] = new Vector3(vertices[i].z, vertices[i].y, -vertices[i].x);
+                    }
+
+                    // rotation
+                    for (int i = 0; i < mesh.vertices.Length; i++)
+                    {
+                        vertices[i] = RotateVertex(mesh.vertices[i], rotation, Vector3.right);
                     }
                     break;
 
                 case 2:
-                    // make the original y+ face the y- direction
+                    // make the top face the x- direction
                     for (int i = 0; i < vertices.Length; i++)
                     {
-                        vertices[i] = new Vector3(vertices[i].x, -vertices[i].y, vertices[i].z);
+                        vertices[i] = new Vector3(-vertices[i].z, vertices[i].y, vertices[i].x);
+                    }
+
+                    // rotation
+                    for (int i = 0; i < mesh.vertices.Length; i++)
+                    {
+                        vertices[i] = RotateVertex(mesh.vertices[i], rotation, Vector3.left);
                     }
                     break;
 
                 case 3:
-                    // make the original y+ face the x- direction
+                    // make the top face the y- direction
                     for (int i = 0; i < vertices.Length; i++)
                     {
-                        vertices[i] = new Vector3(-vertices[i].y, vertices[i].z, -vertices[i].x);
+                        vertices[i] = new Vector3(vertices[i].x, -vertices[i].z, vertices[i].y);
+                    }
+
+                    // rotation
+                    for (int i = 0; i < mesh.vertices.Length; i++)
+                    {
+                        vertices[i] = RotateVertex(mesh.vertices[i], rotation, Vector3.down);
                     }
                     break;
 
                 case 4:
-                    // make the original y+ face the z+ direction
+                    // make the top face the z+ direction
                     for (int i = 0; i < vertices.Length; i++)
                     {
                         vertices[i] = new Vector3(vertices[i].x, vertices[i].z, -vertices[i].y);
                     }
+
+                    // rotation
+                    for (int i = 0; i < mesh.vertices.Length; i++)
+                    {
+                        vertices[i] = RotateVertex(mesh.vertices[i], rotation, Vector3.forward);
+                    }
                     break;
 
                 case 5:
-                    // make the original y+ face the z- direction
+                    // make the top face the z- direction
                     for (int i = 0; i < vertices.Length; i++)
                     {
                         vertices[i] = new Vector3(-vertices[i].x, vertices[i].z, vertices[i].y);
+                    }
+
+                    // rotation
+                    for (int i = 0; i < mesh.vertices.Length; i++)
+                    {
+                        vertices[i] = RotateVertex(mesh.vertices[i], rotation, Vector3.back);
                     }
                     break;
 
@@ -102,50 +135,71 @@ namespace Assets.Scripts
                     break;
             }
 
+            mesh.vertices = vertices;
+
             return mesh;
         }
 
-        // Rotate the vertex around the y axis
-        private Vector3 RotateVertex(Vector3 vertex, int rotation)
+        // Rotate the vertex around the specified axis in 90 degree increments clockwise
+        private Vector3 RotateVertex(Vector3 vertex, int rotation, Vector3 axis)
         {
-            var newVertex = vertex;
-            for (int i = 0; i < rotation; i++)
+            switch (rotation)
             {
-                newVertex = new Vector3(newVertex.z, newVertex.y, -newVertex.x);
+                case 0:
+                    // no rotation needed
+                    break;
+
+                case 1:
+                    // rotate 90 degrees clockwise
+                    vertex = Quaternion.AngleAxis(90f, axis) * vertex;
+                    break;
+
+                case 2:
+                    // rotate 180 degrees clockwise
+                    vertex = Quaternion.AngleAxis(180f, axis) * vertex;
+                    break;
+
+                case 3:
+                    // rotate 270 degrees clockwise
+                    vertex = Quaternion.AngleAxis(270f, axis) * vertex;
+                    break;
+
+                default:
+                    break;
             }
-            return newVertex;
+
+            return vertex;
         }
 
-        public Mesh CombineSurfaces(List<Surface> surfaces)
+        public Mesh CombineMeshes(List<Mesh> meshes)
         {
-            var mesh = new Mesh();
-            var vertices = new List<Vector3>();
-            var triangles = new List<int>();
+            var combinedMesh = new Mesh();
 
-            // combine all the vertices and triangles
+            // combine instances
+            var combine = new CombineInstance[meshes.Count];
+
+            for (int i = 0; i < meshes.Count; i++)
+            {
+                combine[i].mesh = meshes[i];
+                combine[i].transform = Matrix4x4.identity;
+            }
+
+            // assign combined mesh
+            combinedMesh.CombineMeshes(combine);
+
+            return combinedMesh;
+        }
+
+        public Mesh CreateMeshFromSurfaces(List<Surface> surfaces)
+        {
+            var meshes = new List<Mesh>();
+
             foreach (var surface in surfaces)
             {
-                var newMesh = CreateSurface(surface.orientation, surface.rotation, surface.shape);
-                var newVertices = newMesh.vertices;
-                var newTriangles = newMesh.triangles;
-
-                // add the vertices
-                foreach (var vertex in newVertices)
-                {
-                    vertices.Add(vertex);
-                }
-
-                // add the triangles
-                foreach (var triangle in newTriangles)
-                {
-                    triangles.Add(triangle);
-                }
+                meshes.Add(CreateSurface(surface.orientation, surface.rotation, surface.shape));
             }
 
-            mesh.vertices = vertices.ToArray();
-            mesh.triangles = triangles.ToArray();
-
-            return mesh;
+            return CombineMeshes(meshes);
         }
 
         private void InitMeshDictionary()
@@ -159,10 +213,10 @@ namespace Assets.Scripts
             var squareMesh = new Mesh();
             var vertices = new Vector3[4];
             var triangles = new int[6];
-            vertices[0] = new Vector3(-0.5f, 0.5f, -0.5f);
-            vertices[1] = new Vector3(-0.5f, 0.5f, 0.5f);
-            vertices[2] = new Vector3(0.5f, 0.5f, 0.5f);
-            vertices[3] = new Vector3(0.5f, 0.5f, -0.5f);
+            vertices[0] = new Vector3(-HALF_BLOCK_SIZE, HALF_BLOCK_SIZE, -HALF_BLOCK_SIZE);
+            vertices[1] = new Vector3(-HALF_BLOCK_SIZE, HALF_BLOCK_SIZE, HALF_BLOCK_SIZE);
+            vertices[2] = new Vector3(HALF_BLOCK_SIZE, HALF_BLOCK_SIZE, HALF_BLOCK_SIZE);
+            vertices[3] = new Vector3(HALF_BLOCK_SIZE, HALF_BLOCK_SIZE, -HALF_BLOCK_SIZE);
             triangles[0] = 0;
             triangles[1] = 1;
             triangles[2] = 2;
